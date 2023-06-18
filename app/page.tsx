@@ -123,59 +123,23 @@ export default function IndexPage() {
           built with Radix UI and Tailwind CSS.
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
+          Here below are some tests using this component system.{" "}
         </p>
       </div>
-      <div className="flex gap-4">
+
+      <div className="flex flex-col gap-4">
         <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
+          href="/multi-select"
+          className="text-slate-600 hover:text-slate-500"
         >
-          Documentation
+          - Multi Select from React Select styled to match shadcn/ui
         </Link>
         <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
+          href="/toast-demo"
+          className="text-slate-600 hover:text-slate-500"
         >
-          GitHub
+          - Test for shadcn/ui Toast component
         </Link>
-      </div>
-      <div>
-        <ToastDemo />
-        <ToastDestructive />
-        <ToggleDemo />
-        <TooltipDemo />
-      </div>
-      <div>
-        <InputDemo />
-      </div>
-      <div>
-        <div>
-          <Select
-            styles={customStyles}
-            className=" border-red-50"
-            value={selectedCategories.map((category) => ({
-              value: category,
-              label: category,
-            }))}
-            onChange={(selectedOptions) => {
-              const selectedValues = selectedOptions.map(
-                (option) => option.value
-              )
-              setSelectedCategories(selectedValues)
-            }}
-            options={categories.map((category) => ({
-              value: category,
-              label: category,
-            }))}
-            isMulti
-          />
-        </div>
       </div>
     </section>
   )
