@@ -1,12 +1,9 @@
 "use client"
 
-import { use, useEffect, useState } from "react"
-import Link from "next/link"
+import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import Select from "react-select"
 
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
 import { InputDemo } from "@/components/scn-input-demo"
 
 let categories = [
@@ -38,7 +35,6 @@ export default function IndexPage() {
   const initialCustomStyles: CustomStyles = {
     option: (defaultStyles, state) => ({
       ...defaultStyles,
-      color: state.isSelected ? "#fff" : "gray",
     }),
     placeholder: (provided, state) => ({
       ...provided,
@@ -57,14 +53,6 @@ export default function IndexPage() {
       borderRadius: "0.35rem",
       backgroundColor: "transparent",
       borderColor: "gray-300",
-      boxShadow: state.isFocused
-        ? theme === "dark"
-          ? "0 0 0 2px black, 0 0 0 4px rgba(30, 41, 59, 1)"
-          : "0 0 0 2px white, 0 0 0 4px rgba(113, 128, 150, 1)"
-        : "none",
-      "&:hover": {
-        borderColor: "gray-300",
-      },
     }),
   }
 
@@ -74,9 +62,35 @@ export default function IndexPage() {
   useEffect(() => {
     console.log("theme", theme)
     setCustomStyles({
-      option: (defaultStyles: any, state: any) => ({
+      option: (defaultStyles: any, { isFocused }) => ({
         ...defaultStyles,
-        color: state.isSelected ? "#fff" : "gray",
+        backgroundColor: isFocused
+          ? theme === "dark"
+            ? "#e2e8f0"
+            : "#e2e8f0"
+          : "transparent",
+        color: isFocused
+          ? theme === "dark"
+            ? "black"
+            : "#6B728"
+          : theme === "dark"
+          ? "black"
+          : "#6B728",
+        ":active": {
+          ...defaultStyles[":active"],
+          backgroundColor: isFocused
+            ? theme === "dark"
+              ? "#e2e8f0"
+              : "#e2e8f0"
+            : "transparent",
+          color: isFocused
+            ? theme === "dark"
+              ? "black"
+              : "#6B728"
+            : theme === "dark"
+            ? "black"
+            : "#6B728",
+        },
       }),
       placeholder: (provided: any, state: any) => ({
         // Styles for the placeholder text
