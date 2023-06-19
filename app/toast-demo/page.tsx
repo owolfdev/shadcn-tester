@@ -9,7 +9,7 @@ export default function IndexPage() {
           Shadcn toast component demo.
         </h1>
       </div>
-      <div>
+      <div className="flex gap-2">
         <ToastDemo />
         <ToastDestructive />
       </div>

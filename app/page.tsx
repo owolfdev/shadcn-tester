@@ -130,13 +130,13 @@ export default function IndexPage() {
       <div className="flex flex-col gap-4">
         <Link
           href="/multi-select"
-          className="text-slate-600 hover:text-slate-500"
+          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
         >
           - Multi Select from React Select styled to match shadcn/ui
         </Link>
         <Link
           href="/toast-demo"
-          className="text-slate-600 hover:text-slate-500"
+          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
         >
           - Test for shadcn/ui Toast component
         </Link>
