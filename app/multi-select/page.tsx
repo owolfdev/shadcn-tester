@@ -31,7 +31,8 @@ export default function IndexPage() {
   const { setTheme, theme } = useTheme()
 
   useEffect(() => {
-    console.log("selectedCategories", selectedCategories)
+    selectedCategories.length > 0 &&
+      console.log("selectedCategories", selectedCategories)
   }, [selectedCategories])
 
   const initialCustomStyles: CustomStyles = {
@@ -62,7 +63,7 @@ export default function IndexPage() {
     useState<CustomStyles>(initialCustomStyles)
 
   useEffect(() => {
-    console.log("theme", theme)
+    //console.log("theme", theme)
     setCustomStyles({
       option: (defaultStyles: any, { isFocused }) => ({
         ...defaultStyles,

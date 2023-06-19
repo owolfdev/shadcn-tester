@@ -76,7 +76,7 @@ export default function IndexPage() {
     useState<CustomStyles>(initialCustomStyles)
 
   useEffect(() => {
-    console.log("theme", theme)
+    //console.log("theme", theme)
     setCustomStyles({
       option: (defaultStyles: any, state: any) => ({
         ...defaultStyles,
@@ -123,28 +123,40 @@ export default function IndexPage() {
           built with Radix UI and Tailwind CSS.
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          Here below are some tests using this component system.{" "}
+          Here below are some tests using{" "}
+          <Link className="hover:text-slate-400" href="https://ui.shadcn.com/">
+            shadcn/ui.
+          </Link>{" "}
         </p>
       </div>
 
       <div className="flex flex-col gap-4">
         <Link
           href="/multi-select"
-          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
+          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
         >
           - Multi Select from React Select styled to match shadcn/ui
         </Link>
         <Link
           href="/toast-demo"
-          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
+          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
         >
           - Test for shadcn/ui Toast component
         </Link>
         <Link
           href="/form"
-          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
+          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
         >
           - Test for shadcn/ui Form
+        </Link>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Link
+          href="https://github.com/owolfdev/shadcn-tester"
+          className="text-muted-foreground hover:text-slate-400"
+        >
+          Source code here.
         </Link>
       </div>
     </section>
