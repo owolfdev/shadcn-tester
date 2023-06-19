@@ -149,6 +149,12 @@ export default function IndexPage() {
         >
           - Test for shadcn/ui Form
         </Link>
+        <Link
+          href="/chart"
+          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+        >
+          - Test Recharts chart
+        </Link>
       </div>
 
       <div className="flex flex-col gap-2">
