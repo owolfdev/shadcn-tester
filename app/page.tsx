@@ -140,6 +140,12 @@ export default function IndexPage() {
         >
           - Test for shadcn/ui Toast component
         </Link>
+        <Link
+          href="/form"
+          className="text-lg font-semibold text-slate-600 hover:text-slate-500"
+        >
+          - Test for shadcn/ui Form
+        </Link>
       </div>
     </section>
   )
