@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { use, useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import Select from "react-select"
 
@@ -26,11 +26,12 @@ interface CustomStyles {
 
 export default function IndexPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const someFunc = () => {
-    console.log("Tooltip clicked")
-  }
 
   const { setTheme, theme } = useTheme()
+
+  useEffect(() => {
+    console.log("selectedCategories", selectedCategories)
+  }, [selectedCategories])
 
   const initialCustomStyles: CustomStyles = {
     option: (defaultStyles, state) => ({
