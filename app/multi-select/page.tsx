@@ -1,6 +1,7 @@
 "use client"
 
 import { use, useEffect, useState } from "react"
+import Link from "next/link"
 import { useTheme } from "next-themes"
 import Select from "react-select"
 
@@ -160,7 +161,14 @@ export default function IndexPage() {
           />
         </div>
       </div>
-      <div></div>
+      <div>
+        <Link
+          className="hover:text-slate-500"
+          href="https://www.owolf.com/blog/style-react-select-component"
+        >
+          See a blog article that explains how to do this.
+        </Link>
+      </div>
     </section>
   )
 }
