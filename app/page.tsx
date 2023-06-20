@@ -171,6 +171,16 @@ export default function IndexPage() {
           Source code here.
         </Link>
       </div>
+      <p className="max-w-[700px] text-lg text-muted-foreground">
+        This project is based on the{" "}
+        <Link
+          className="hover:text-slate-400"
+          href="https://ui.shadcn.com/docs/installation"
+        >
+          Next.JS starter template
+        </Link>{" "}
+        available on the official website.
+      </p>
     </section>
   )
 }

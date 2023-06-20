@@ -60,9 +60,9 @@ const languages = [
 ] as const
 
 const dummyOptionsForSelect = [
-  { label: "o@g.com", value: "o@g.com" },
-  { label: "lisa@oldfield.com", value: "lisa@oldfield.com" },
-  { label: "billy@oldfield.com", value: "billy@oldfield.com" },
+  { label: "wolf@owolf.com", value: "wolf@owolf.com" },
+  { label: "oliver@owolf.com", value: "oliver@owolf.com" },
+  { label: "admin@owolf.com", value: "admin@owolf.com" },
 ]
 
 const formSchema = z.object({
