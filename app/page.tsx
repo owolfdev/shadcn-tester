@@ -150,6 +150,12 @@ export default function IndexPage() {
           - Test for shadcn/ui Form
         </Link>
         <Link
+          href="/form-custom"
+          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+        >
+          - Custom shadcn/ui Form
+        </Link>
+        <Link
           href="/chart"
           className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
         >
