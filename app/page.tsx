@@ -125,39 +125,40 @@ export default function IndexPage() {
         <p className="max-w-[700px] text-lg text-muted-foreground">
           Here below are some tests using{" "}
           <Link className="hover:text-slate-400" href="https://ui.shadcn.com/">
-            shadcn/ui.
+            shadcn/ui,
           </Link>{" "}
+          sometimes in combination with other libraries.
         </p>
       </div>
 
       <div className="flex flex-col gap-4">
         <Link
           href="/multi-select"
-          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+          className="text-lg font-semibold hover:text-slate-400"
         >
           - Multi Select from React Select styled to match shadcn/ui
         </Link>
         <Link
           href="/toast-demo"
-          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+          className="text-lg font-semibold hover:text-slate-400"
         >
           - Test for shadcn/ui Toast component
         </Link>
         <Link
           href="/form"
-          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+          className="text-lg font-semibold hover:text-slate-400"
         >
           - Test for shadcn/ui Form
         </Link>
         <Link
           href="/form-custom"
-          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+          className="text-lg font-semibold hover:text-slate-400"
         >
           - Custom shadcn/ui Form
         </Link>
         <Link
           href="/chart"
-          className="text-lg font-semibold text-muted-foreground hover:text-slate-400"
+          className="text-lg font-semibold hover:text-slate-400"
         >
           - Test Recharts chart
         </Link>
