@@ -128,6 +128,10 @@ export function CustomForm() {
     })
   }
 
+  function handleInputTap(event: any) {
+    event.target.classList.add("input-no-zoom")
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -138,7 +142,11 @@ export function CustomForm() {
             <FormItem>
               <FormLabel className="font-semibold text-md">Username</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input
+                  className="input-no-zoom, sm:text-base text-lg"
+                  placeholder="shadcn"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This is your public display name.
@@ -157,7 +165,11 @@ export function CustomForm() {
                 First Name
               </FormLabel>
               <FormControl>
-                <Input placeholder="add first name" {...field} />
+                <Input
+                  className="input-no-zoom, sm:text-base text-lg"
+                  placeholder="add first name"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This is your real first name and will not be visible to public.
@@ -459,8 +471,9 @@ export function CustomForm() {
               <FormLabel>Bio</FormLabel>
               <FormControl>
                 <Textarea
+                  className="input-no-zoom, sm:text-base text-lg"
                   placeholder="Tell us a little bit about yourself"
-                  className="resize-none"
+                  // className="resize-none"
                   {...field}
                 />
               </FormControl>

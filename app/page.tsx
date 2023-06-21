@@ -136,31 +136,31 @@ export default function IndexPage() {
           href="/multi-select"
           className="text-lg font-semibold hover:text-slate-400"
         >
-          - Multi Select from React Select styled to match shadcn/ui
+          Multi Select from React Select styled to match shadcn/ui
         </Link>
         <Link
           href="/toast-demo"
           className="text-lg font-semibold hover:text-slate-400"
         >
-          - Test for shadcn/ui Toast component
+          Test for shadcn/ui Toast component
         </Link>
         <Link
           href="/form"
           className="text-lg font-semibold hover:text-slate-400"
         >
-          - Test for shadcn/ui Form
+          Test for shadcn/ui Form
         </Link>
         <Link
           href="/form-custom"
           className="text-lg font-semibold hover:text-slate-400"
         >
-          - Custom shadcn/ui Form
+          Custom shadcn/ui Form
         </Link>
         <Link
           href="/chart"
           className="text-lg font-semibold hover:text-slate-400"
         >
-          - Test Recharts chart
+          Test Recharts chart
         </Link>
       </div>
 

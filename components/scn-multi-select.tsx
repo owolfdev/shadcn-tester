@@ -123,14 +123,14 @@ export function MultiSelect({
         ...defaultStyles,
         borderRadius: "0.35rem",
         backgroundColor: "transparent",
-        borderColor: "gray-300",
+        borderColor: "--border",
         boxShadow: state.isFocused
           ? theme === "dark"
-            ? "0 0 0 2px black, 0 0 0 4px rgba(30, 41, 59, 1)"
-            : "0 0 0 2px white, 0 0 0 4px rgba(113, 128, 150, 0.85)"
+            ? "0 0 0 2px black, 0 0 0 4px hsl(216, 34%, 17%)"
+            : "0 0 0 2px white, 0 0 0 4px hsl(215, 20.2%, 65.1%)"
           : "none",
         "&:hover": {
-          borderColor: "gray-300",
+          borderColor: "--border",
         },
       }),
     })
@@ -141,7 +141,7 @@ export function MultiSelect({
       <div>
         <Select
           styles={customStyles}
-          className=" border-red-50"
+          className=""
           value={selectedCategories.map((category: any) => ({
             value: category,
             label: category,
