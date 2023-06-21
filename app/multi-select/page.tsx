@@ -23,6 +23,7 @@ interface CustomStyles {
   placeholder: (provided: any, state: any) => any
   multiValue: (provided: any, state: any) => any
   control: (defaultStyles: any, state: any) => any
+  input: (styles: any) => any
 }
 
 export default function IndexPage() {
@@ -56,6 +57,10 @@ export default function IndexPage() {
       borderRadius: "0.35rem",
       backgroundColor: "transparent",
       borderColor: "gray-300",
+    }),
+    input: (styles: any) => ({
+      ...styles,
+      color: "black",
     }),
   }
 
@@ -124,6 +129,10 @@ export default function IndexPage() {
         "&:hover": {
           borderColor: "gray-300",
         },
+      }),
+      input: (styles: any) => ({
+        ...styles,
+        color: theme === "dark" ? "#e2e8f0" : "black",
       }),
     })
   }, [theme])
