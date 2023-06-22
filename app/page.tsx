@@ -162,6 +162,24 @@ export default function IndexPage() {
         >
           Test Recharts chart
         </Link>
+        <Link
+          href="/data-table"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Shadcn Data Table Test
+        </Link>
+        <Link
+          href="/payments"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Custom Shadcn Data Table Test - Payments
+        </Link>
+        <Link
+          href="/payments-single"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Custom Shadcn Data Table Test - Single full width cell
+        </Link>
       </div>
 
       <div className="flex flex-col gap-2">
@@ -180,7 +198,8 @@ export default function IndexPage() {
         >
           Next.JS starter template
         </Link>{" "}
-        available on the official website.
+        available on the{" "}
+        <Link href="http://ui.shadcn.com">official website</Link>.
       </p>
     </section>
   )
