@@ -12,9 +12,11 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown } from "lucide-react"
+// import { SelectPrimitive, SelectTrigger, SelectValue, SelectGroup, SelectItem, SelectSeparator } from "@radix-ui/react-select";
+import { ArrowUpDown, Check, ChevronDown } from "lucide-react"
 import { useMediaQuery } from "react-responsive"
 
+import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -88,23 +90,30 @@ export function DataTable<TData, TValue>({
   })
 
   useEffect(() => {
-    console.log("sorting", sorting)
+    //console.log("sorting", sorting)
   }, [sorting])
 
   const isMobile = useMediaQuery({ maxWidth: 640 })
 
   useEffect(() => {}, [])
 
+  const handleOverlayClick = () => {
+    console.log("overlay clicked")
+  }
+
   return (
     <div>
       {/* Filter */}
-      <div className="flex items-end h-full gap-4 p-2">
+      <div className="z-20 flex items-end h-full gap-4 p-2">
         <div className="flex flex-col gap-2">
           <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
-            <SelectTrigger className="h-8">
-              <SelectValue placeholder="Filter by.." />
+            <SelectTrigger
+              onClick={() => console.log("clicked")}
+              className="z-30 h-8"
+            >
+              <SelectValue placeholder="Sort by.." />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -114,7 +123,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="">
+          <div className="z-40">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
               value={
@@ -126,16 +135,16 @@ export function DataTable<TData, TValue>({
                   .getColumn(filteringTerm)
                   ?.setFilterValue(event.target.value)
               }
-              className="h-8 max-w-sm"
+              className="h-8 max-w-sm input-no-zoom"
             />
           </div>
         </div>
-        {/* Sort */}
+
         <div className="flex flex-col gap-2">
           <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
           >
-            <SelectTrigger className="h-8">
+            <SelectTrigger className="z-30 h-8">
               <SelectValue placeholder="Sort by.." />
             </SelectTrigger>
             <SelectContent>
@@ -146,6 +155,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select>
+
           <div className="">
             <Button
               className="h-8"
@@ -181,7 +191,7 @@ export function DataTable<TData, TValue>({
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row: any) => {
-                console.log("row", row)
+                // console.log("row", row)
 
                 const rowId = row.original.exid // Access the exid from the original data
                 return (
@@ -194,7 +204,7 @@ export function DataTable<TData, TValue>({
                     {row.getVisibleCells().map((cell: any) => {
                       if (cell.column.id === "status") {
                         return (
-                          <TableCell key={cell.exid} className="flex">
+                          <TableCell key={rowId} className="flex">
                             {flexRender(
                               cell.column.columnDef.cell,
                               cell.getContext()
@@ -241,6 +251,14 @@ export function DataTable<TData, TValue>({
           </Button>
         </div>
       </div>
+      {/* Add the overlay element for touch isolation */}
+      {/* {filteringTerm && (
+        <div
+          id="overlay"
+          className="absolute top-0 left-0 z-20 w-full h-full bg-pink-100 opacity-50"
+          onClick={handleOverlayClick}
+        />
+      )} */}
     </div>
   )
 }

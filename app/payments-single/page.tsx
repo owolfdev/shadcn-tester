@@ -14,7 +14,7 @@ function DemoPage() {
 
   async function getData(): Promise<Payment[]> {
     // Fetch data from your API here.
-    console.log("data array", dataArray)
+    // console.log("data array", dataArray)
     return [...(dataArray as Payment[])]
   }
 
