@@ -183,15 +183,13 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => {
                 console.log("row", row)
 
-                const rowId = row // Access the id from the original data
+                const rowId = row.original.exid // Access the exid from the original data
                 return (
                   <TableRow
                     key={rowId}
                     data-state={row.getIsSelected() && "selected"}
                     className=""
-                    onClick={() =>
-                      router.push(`/payments-single/${row.original.exid}`)
-                    }
+                    onClick={() => router.push(`/payments-single/${rowId}`)}
                   >
                     {row.getVisibleCells().map((cell) => {
                       if (cell.column.id === "status") {
