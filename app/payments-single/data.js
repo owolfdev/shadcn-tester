@@ -3,7 +3,7 @@ const dataArray = [
     id: "625ed52f",
     amount: 200,
     status: "pending",
-    email: "x@example.com",
+    email: "billy@example.com",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
@@ -18,7 +18,7 @@ const dataArray = [
     id: "c7f8a9e6",
     amount: 2500,
     status: "success",
-    email: "emma@example.com",
+    email: "sam@example.com",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
@@ -26,7 +26,7 @@ const dataArray = [
     id: "9b3e2f84",
     amount: 850,
     status: "failed",
-    email: "alex@example.com",
+    email: "john@example.com",
     description:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
@@ -34,7 +34,7 @@ const dataArray = [
     id: "d8b2f1a6",
     amount: 50,
     status: "pending",
-    email: "lucy@example.com",
+    email: "lisa@example.com",
     description:
       "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
@@ -50,7 +50,7 @@ const dataArray = [
     id: "6d2c9e1a",
     amount: 275,
     status: "success",
-    email: "olivia@example.com",
+    email: "billy@example.com",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
@@ -58,7 +58,7 @@ const dataArray = [
     id: "5a9d8f4b",
     amount: 3500,
     status: "failed",
-    email: "sophia@example.com",
+    email: "billy@example.com",
     description:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
@@ -66,7 +66,7 @@ const dataArray = [
     id: "3b5e8d2c",
     amount: 1000,
     status: "pending",
-    email: "william@example.com",
+    email: "john@example.com",
     description:
       "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
@@ -82,7 +82,7 @@ const dataArray = [
     id: "4e8d2c7b",
     amount: 1750,
     status: "success",
-    email: "jacob@example.com",
+    email: "john@example.com",
     description:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },

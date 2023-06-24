@@ -1,6 +1,7 @@
 "use client"
 
-import * as React from "react"
+import React, { useEffect } from "react"
+import { useRouter } from "next/navigation"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -13,6 +14,8 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
+import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { useMediaQuery } from "react-responsive"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,6 +25,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import {
   Table,
   TableBody,
@@ -44,6 +56,10 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
+  const [filteringTerm, setFilteringTerm] = React.useState<string>("email")
+  const [sortingTerm, setSortingTerm] = React.useState<string>("status")
+
+  const router = useRouter()
 
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
@@ -65,124 +81,134 @@ export function DataTable<TData, TValue>({
     },
   })
 
+  useEffect(() => {
+    console.log("sorting", sorting)
+  }, [sorting])
+
+  const isMobile = useMediaQuery({ maxWidth: 640 })
+  //const isMobile = true
+
+  useEffect(() => {}, [])
+
   return (
     <div>
-      <div className="flex items-center h-full gap-4 p-2 ">
-        {/* filter */}
-        <div className="">
-          <Input
-            placeholder="Filter emails..."
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("email")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
+      <div className="flex items-end h-full gap-4 p-2">
+        <div className="flex flex-col gap-2">
+          {/* select */}
+          <Select
+            onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
+          >
+            <SelectTrigger className="h-8">
+              <SelectValue placeholder="Filter by.." />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {/* <SelectLabel>Fruits</SelectLabel> */}
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="description">Description</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          {/* filter */}
+          <div className="">
+            <Input
+              placeholder={`Filter ${filteringTerm}...`}
+              value={
+                (table.getColumn(filteringTerm)?.getFilterValue() as string) ??
+                ""
+              }
+              onChange={(event) =>
+                table
+                  .getColumn(filteringTerm)
+                  ?.setFilterValue(event.target.value)
+              }
+              className="h-8 max-w-sm"
+            />
+          </div>
         </div>
-        {/* <div className="">
-          <Input
-            placeholder="Filter status..."
-            value={
-              (table.getColumn("status")?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn("status")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
-        </div> */}
         {/* sort */}
-        <div className="">
-          <Button
-            onClick={() =>
-              table
-                .getColumn("amount")
-                ?.toggleSorting(
-                  table.getColumn("amount")?.getIsSorted() === "asc"
-                )
-            }
+        <div className="flex flex-col gap-2">
+          <Select
+            onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
           >
-            amount
-          </Button>
-        </div>
-        <div className="">
-          <Button
-            onClick={() =>
-              table
-                .getColumn("status")
-                ?.toggleSorting(
-                  table.getColumn("status")?.getIsSorted() === "asc"
+            <SelectTrigger className="h-8">
+              <SelectValue placeholder="Sort by.." />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {/* <SelectLabel>Fruits</SelectLabel> */}
+                <SelectItem value="amount">Amount</SelectItem>
+                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="status">Status</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          <div className="">
+            <Button
+              className="h-8"
+              variant="secondary"
+              onClick={() =>
+                table
+                  .getColumn(sortingTerm)
+                  ?.toggleSorting(
+                    table.getColumn(sortingTerm)?.getIsSorted() === "asc"
+                  )
+              }
+            >
+              {sortingTerm}
+              {table.getColumn(sortingTerm)?.getIsSorted() === "asc" ? (
+                sorting.length > 0 ? (
+                  <ArrowUpDown className="w-4 h-4 ml-2 transform scale-x-[-1]" />
+                ) : (
+                  <ArrowUpDown className="w-4 h-4 ml-2 transform scale-x-[-1] text-gray-400" />
                 )
-            }
-          >
-            status
-          </Button>
+              ) : sorting.length > 0 ? (
+                <ArrowUpDown className="w-4 h-4 ml-2 transform " />
+              ) : (
+                <ArrowUpDown className="w-4 h-4 ml-2 text-gray-400 transform" />
+              )}
+            </Button>
+          </div>
         </div>
+        {/* end sort */}
       </div>
-      {/* sort end */}
-      {/* visible */}
-      {/* <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="ml-auto">
-            Columns
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          {table
-            .getAllColumns()
-            .filter((column) => column.getCanHide())
-            .map((column) => {
-              return (
-                <DropdownMenuCheckboxItem
-                  key={column.id}
-                  className="capitalize"
-                  checked={column.getIsVisible()}
-                  onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                >
-                  {column.id}
-                </DropdownMenuCheckboxItem>
-              )
-            })}
-        </DropdownMenuContent>
-      </DropdownMenu> */}
+      {/* table */}
       <div className="border rounded-md">
         <Table>
-          {/* <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
-                    </TableHead>
-                  )
-                })}
-              </TableRow>
-            ))}
-          </TableHeader> */}
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                  className="bg-orange-100 "
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="flex">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              table.getRowModel().rows.map((row) => {
+                const rowId = row.original.id // Access the id from the original data
+                return (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                    className=""
+                    onClick={() => router.push(`/payments-single/${rowId}`)}
+                  >
+                    {row.getVisibleCells().map((cell) => {
+                      if (cell.column.id === "status") {
+                        console.log("cell")
+                        const amount = parseFloat(row.getValue("amount"))
+                        const formattedAmount = new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        }).format(amount)
+                        return (
+                          <TableCell key={cell.id} className="flex">
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
+                            )}
+                          </TableCell>
+                        )
+                      }
+                      return null
+                    })}
+                  </TableRow>
+                )
+              })
             ) : (
               <TableRow className="">
                 <TableCell colSpan={columns.length} className="">
@@ -194,23 +220,28 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       {/* pagination */}
-      <div className="flex items-center justify-end py-4 space-x-2">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+      <div className="flex items-start justify-between px-2 py-4">
+        <div className="flex justify-start text-sm font-semibold">
+          {table.getRowModel().rows?.length} of {data.length} items
+        </div>
+        <div className="flex space-x-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
       </div>
     </div>
   )
