@@ -54,7 +54,7 @@ interface DataTableProps {
   data: TData[]
 }
 
-export function DataTable({ columns, data }: DataTableProps) {
+export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
