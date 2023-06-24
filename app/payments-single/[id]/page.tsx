@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation"
 
 import dataArray from "../data"
 
-export default function PaymentPage({ params }: { params: { slug: string } }) {
+export default function PaymentPage({ params }: { params: { id: string } }) {
   const data = dataArray.find((item) => item.id === params.id)
   return (
     <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
