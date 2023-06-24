@@ -24,7 +24,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends { id: string }, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }

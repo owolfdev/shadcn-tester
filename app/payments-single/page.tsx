@@ -8,7 +8,7 @@ import dataArray from "./data"
 import { DataTable } from "./data-table"
 
 function DemoPage() {
-  const isMobile = useMediaQuery({ maxWidth: 640 })
+  const isMobile = useMediaQuery({ maxWidth: 740 })
 
   const [data, setData] = React.useState<Payment[]>([])
 
