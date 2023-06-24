@@ -12,7 +12,7 @@ export default function PaymentPage({ params }: { params: { id: string } }) {
         </h1>
       </div>
       <p>URL Parameter: {params.id}</p>
-      <div>{JSON.stringify(data.description)}</div>
+      <div>{JSON.stringify(data?.description)}</div>
     </section>
   )
 }
