@@ -50,7 +50,7 @@ interface TData {
 }
 
 interface DataTableProps {
-  columns: ColumnDef<TData>[]
+  columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
