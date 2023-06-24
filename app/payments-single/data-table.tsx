@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import {
@@ -14,7 +12,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown } from "lucide-react"
 import { useMediaQuery } from "react-responsive"
 
 import { Button } from "@/components/ui/button"
@@ -52,11 +50,11 @@ interface TData {
 }
 
 interface DataTableProps {
-  columns: ColumnDef<TData, TValue>[]
+  columns: ColumnDef<TData>[]
   data: TData[]
 }
 
-export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
+export function DataTable({ columns, data }: DataTableProps) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -91,15 +89,14 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
   }, [sorting])
 
   const isMobile = useMediaQuery({ maxWidth: 640 })
-  //const isMobile = true
 
   useEffect(() => {}, [])
 
   return (
     <div>
+      {/* Filter */}
       <div className="flex items-end h-full gap-4 p-2">
         <div className="flex flex-col gap-2">
-          {/* select */}
           <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
@@ -108,14 +105,12 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {/* <SelectLabel>Fruits</SelectLabel> */}
                 <SelectItem value="email">Email</SelectItem>
                 <SelectItem value="description">Description</SelectItem>
                 <SelectItem value="status">Status</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
-          {/* filter */}
           <div className="">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
@@ -132,7 +127,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
             />
           </div>
         </div>
-        {/* sort */}
+        {/* Sort */}
         <div className="flex flex-col gap-2">
           <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
@@ -142,7 +137,6 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {/* <SelectLabel>Fruits</SelectLabel> */}
                 <SelectItem value="amount">Amount</SelectItem>
                 <SelectItem value="email">Email</SelectItem>
                 <SelectItem value="status">Status</SelectItem>
@@ -176,9 +170,9 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
             </Button>
           </div>
         </div>
-        {/* end sort */}
+        {/* End Sort */}
       </div>
-      {/* table */}
+      {/* Table */}
       <div className="border rounded-md">
         <Table>
           <TableBody>
@@ -224,7 +218,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
           </TableBody>
         </Table>
       </div>
-      {/* pagination */}
+      {/* Pagination */}
       <div className="flex items-start justify-between px-2 py-4">
         <div className="flex justify-start text-sm font-semibold">
           {table.getRowModel().rows?.length} of {data.length} items

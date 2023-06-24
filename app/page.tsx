@@ -168,12 +168,7 @@ export default function IndexPage() {
         >
           Shadcn Data Table Test
         </Link>
-        <Link
-          href="/payments"
-          className="text-lg font-semibold hover:text-slate-400"
-        >
-          Custom Shadcn Data Table Test - Payments
-        </Link>
+
         <Link
           href="/payments-single"
           className="text-lg font-semibold hover:text-slate-400"
