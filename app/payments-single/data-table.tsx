@@ -180,7 +180,7 @@ export function DataTable<TData, TValue>({
         <Table>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => {
+              table.getRowModel().rows.map((row: any) => {
                 console.log("row", row)
 
                 const rowId = row.original.exid // Access the exid from the original data
@@ -191,7 +191,7 @@ export function DataTable<TData, TValue>({
                     className=""
                     onClick={() => router.push(`/payments-single/${rowId}`)}
                   >
-                    {row.getVisibleCells().map((cell) => {
+                    {row.getVisibleCells().map((cell: any) => {
                       if (cell.column.id === "status") {
                         return (
                           <TableCell key={cell.exid} className="flex">
