@@ -42,7 +42,7 @@ import {
 } from "@/components/ui/table"
 
 interface TData {
-  id: string
+  exid: string
   amount: number
   status: string
   email: string
@@ -181,24 +181,22 @@ export function DataTable<TData, TValue>({
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => {
-                const rowId = row.original.id // Access the id from the original data
+                console.log("row", row)
+
+                const rowId = row // Access the id from the original data
                 return (
                   <TableRow
-                    key={row.id}
+                    key={rowId}
                     data-state={row.getIsSelected() && "selected"}
                     className=""
-                    onClick={() => router.push(`/payments-single/${rowId}`)}
+                    onClick={() =>
+                      router.push(`/payments-single/${row.original.exid}`)
+                    }
                   >
                     {row.getVisibleCells().map((cell) => {
                       if (cell.column.id === "status") {
-                        console.log("cell")
-                        const amount = parseFloat(row.getValue("amount"))
-                        const formattedAmount = new Intl.NumberFormat("en-US", {
-                          style: "currency",
-                          currency: "USD",
-                        }).format(amount)
                         return (
-                          <TableCell key={cell.id} className="flex">
+                          <TableCell key={cell.exid} className="flex">
                             {flexRender(
                               cell.column.columnDef.cell,
                               cell.getContext()
