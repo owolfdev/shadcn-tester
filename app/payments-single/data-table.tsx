@@ -123,7 +123,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="z-40">
+          <div className="z-40 input-no-zoom">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
               value={
