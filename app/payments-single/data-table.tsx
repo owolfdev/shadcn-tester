@@ -43,6 +43,14 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+interface TData {
+  id: string
+  amount: number
+  status: string
+  email: string
+  description: string
+}
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
