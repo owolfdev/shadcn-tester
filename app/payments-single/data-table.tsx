@@ -49,7 +49,7 @@ interface TData {
   description: string
 }
 
-interface DataTableProps {
+interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
