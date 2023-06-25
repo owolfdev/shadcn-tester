@@ -43,11 +43,9 @@ export const columns: ColumnDef<Expense>[] = [
 
     cell: ({ row }) => {
       const id = row.getValue("id") as string
-      const amount = parseFloat(row.getValue("amount"))
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "THB",
-      }).format(amount)
+      const amount: number = row.getValue("amount")
+      const convertedAmount: number = amount / 100
+      const formattedAmount: string = convertedAmount.toFixed(2)
       const date = row.getValue("created_at") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
@@ -59,15 +57,19 @@ export const columns: ColumnDef<Expense>[] = [
       const account = row.getValue("account") as string
 
       return (
-        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px]">
+        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[110px] overflow-hidden">
           <div className="w-1/2">
-            <div className="font-medium">
-              Amount: <span className="text-lg font-bold">{formatted}</span>
+            <div className="">
+              <span className="font-semibold">Amount: </span>
+              <span className="text-lg ">&#3647;</span>
+              <span className="text-lg font-bold">{formattedAmount}</span>
             </div>
-            <div className="font-medium">Date: {date}</div>
-            <div className="font-medium">Merchant: {merchant}</div>
-            <div className="font-medium">Categories: {categories}</div>
-            <div className="font-medium">Account: {account}</div>
+            <div className="text-sm font-medium ">Date: {date}</div>
+            <div className="font-bold">Merchant: {merchant}</div>
+            <div className="text-xs text-gray-500">
+              Categories: {categories}
+            </div>
+            <div className="text-sm font-medium">Account: {account}</div>
           </div>
           <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md">
             {description}
@@ -116,33 +118,30 @@ export const columnsMobile: ColumnDef<Expense>[] = [
 
     cell: ({ row }) => {
       const id = row.getValue("id") as string
-      const amount = parseFloat(row.getValue("amount"))
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "THB",
-      }).format(amount)
+      const amount: number = row.getValue("amount")
+      const convertedAmount: number = amount / 100
+      const formattedAmount: string = convertedAmount.toFixed(2)
       const date = row.getValue("created_at") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
-      const categories = row.getValue("categories") as string[]
+      const categoriesRaw = row.getValue("categories") as string[]
 
-      const formattedCategories = categories.join(", ")
-      const account = row.getValue("account") as string
+      const categories = categoriesRaw.join(", ")
 
       // console.log("exid", exid)
+      const account = row.getValue("account") as string
 
       return (
-        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[100px] sm:h-[90px]">
+        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px] overflow-hidden">
           <div className="w-1/2">
-            <div className="text-sm font-medium">
-              Amount: <span className="text-sm font-bold">{formatted}</span>
+            <div className="">
+              <span className="text-lg ">&#3647;</span>
+              <span className="text-lg font-bold">{formattedAmount}</span>
             </div>
-            <div className="text-sm font-medium ">Date: {date}</div>
-            <div className="text-sm font-medium ">Merch: {merchant}</div>
-            <div className="text-sm font-medium ">
-              Cat: {formattedCategories}
-            </div>
-            <div className="font-medium">Account: {account}</div>
+            <div className="text-sm font-medium">{date}</div>
+            <div className="font-bold">{merchant}</div>
+            <div className="text-xs text-gray-500">{categories}</div>
+            <div className="text-sm font-medium">{account}</div>
           </div>
           <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md">
             {description.slice(0, 50)}
