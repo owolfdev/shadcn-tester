@@ -4,7 +4,7 @@ import { Expense } from "../columns"
 import dataArray from "../data"
 
 export default function PaymentPage({ params }: { params: { id: string } }) {
-  const expenseData = dataArray as Expense
+  const expenseData = dataArray
   const data = expenseData.find((item) => item.id === params.id)
   // // const data = dataArray
   return (
