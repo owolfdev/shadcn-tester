@@ -78,19 +78,12 @@ export const columns: ColumnDef<Expense>[] = [
   },
   {
     accessorKey: "created_at",
-    cell: ({ row }) => {
-      const created_at = row.getValue("created_at") as String
-      return null
-    },
+    cell: () => null,
     header: () => null,
-    label: "date",
   },
   {
     accessorKey: "amount",
-    cell: ({ row }) => {
-      const amount = row.getValue("amount") as String
-      return null
-    },
+    cell: () => null,
     header: () => null,
   },
   {
@@ -160,18 +153,13 @@ export const columnsMobile: ColumnDef<Expense>[] = [
   },
   {
     accessorKey: "created_at",
-    cell: ({ row }) => {
-      const created_at = row.getValue("created_at") as String
-      return null
-    },
+    cell: () => null,
     header: () => null,
   },
   {
     accessorKey: "amount",
-    cell: ({ row }) => {
-      const amount = row.getValue("amount") as String
-      return null
-    },
+    cell: () => null,
+
     header: () => null,
   },
   {
