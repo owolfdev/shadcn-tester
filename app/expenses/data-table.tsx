@@ -49,7 +49,7 @@ interface TData {
   status: string
   email: string
   description: string
-  categories: string[]
+  categories?: string[]
 }
 
 interface DataTableProps<TData, TValue> {
@@ -109,7 +109,7 @@ export function DataTable<TData, TValue>({
 
   function handleFilterInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value
-    if (filteringTerm === "categories") {
+    if (filteringTerm === "categories" && item.categories) {
       const filteredData = data.filter((item) => {
         // Convert categories array to lowercase strings
         const lowercaseCategories = item.categories.map((category) =>
