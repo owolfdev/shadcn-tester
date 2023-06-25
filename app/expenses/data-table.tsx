@@ -111,10 +111,12 @@ export function DataTable<TData, TValue>({
     const inputValue = event.target.value
     if (filteringTerm === "categories") {
       const filteredData = data.filter((item) => {
+        const itemWithCategories = item as TData & { categories?: string[] }
+
         // Convert categories array to lowercase strings
-        if (!item.categories) return false
-        const lowercaseCategories = item.categories.map((category) =>
-          category.toLowerCase()
+        if (!itemWithCategories.categories) return false
+        const lowercaseCategories = itemWithCategories.categories.map(
+          (category) => category.toLowerCase()
         )
 
         // Check if any category matches the search input
