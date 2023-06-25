@@ -64,8 +64,9 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
-  const [filteringTerm, setFilteringTerm] = React.useState<string>("email")
-  const [sortingTerm, setSortingTerm] = React.useState<string>("status")
+  const [filteringTerm, setFilteringTerm] =
+    React.useState<string>("description")
+  const [sortingTerm, setSortingTerm] = React.useState<string>("created_at")
 
   const router = useRouter()
 
@@ -119,9 +120,9 @@ export function DataTable<TData, TValue>({
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="email">Email</SelectItem>
+                <SelectItem value="merchant">Merchant</SelectItem>
                 <SelectItem value="description">Description</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -152,8 +153,8 @@ export function DataTable<TData, TValue>({
             <SelectContent>
               <SelectGroup>
                 <SelectItem value="amount">Amount</SelectItem>
-                <SelectItem value="email">Email</SelectItem>
-                <SelectItem value="status">Status</SelectItem>
+                <SelectItem value="created_at">Date</SelectItem>
+                <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -195,16 +196,16 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row: any) => {
                 // console.log("row", row)
 
-                const rowId = row.original.exid // Access the exid from the original data
+                const rowId = row.original.id // Access the exid from the original data
                 return (
                   <TableRow
                     key={rowId}
                     data-state={row.getIsSelected() && "selected"}
                     className=""
-                    onClick={() => router.push(`/payments-single/${rowId}`)}
+                    onClick={() => router.push(`/expenses/${rowId}`)}
                   >
                     {row.getVisibleCells().map((cell: any) => {
-                      if (cell.column.id === "status") {
+                      if (cell.column.id === "id") {
                         return (
                           <TableCell key={rowId} className="flex">
                             {flexRender(
@@ -232,7 +233,9 @@ export function DataTable<TData, TValue>({
       {/* Pagination */}
       <div className="flex items-start justify-between px-2 py-4">
         <div className="flex justify-start text-sm font-semibold">
-          {table.getRowModel().rows?.length} of {data.length} items
+          {table.getRowModel().rows?.length *
+            (table.getState().pagination.pageIndex + 1)}{" "}
+          of {data.length} items
         </div>
         <div className="flex space-x-2">
           <Button
@@ -253,14 +256,6 @@ export function DataTable<TData, TValue>({
           </Button>
         </div>
       </div>
-      {/* Add the overlay element for touch isolation */}
-      {/* {filteringTerm && (
-        <div
-          id="overlay"
-          className="absolute top-0 left-0 z-20 w-full h-full bg-pink-100 opacity-50"
-          onClick={handleOverlayClick}
-        />
-      )} */}
     </div>
   )
 }
