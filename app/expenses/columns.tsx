@@ -61,7 +61,8 @@ export const columns: ColumnDef<Expense>[] = [
           <div className="w-1/2">
             <div className="">
               <span className="font-semibold">Amount: </span>
-              <span className="text-lg ">&#3647;</span>
+              <span className="text-lg ">&#36;</span>
+              {/* <span className="text-lg ">&#3647;</span> */}
               <span className="text-lg font-bold">{formattedAmount}</span>
             </div>
             <div className="text-sm font-medium ">Date: {date}</div>
@@ -135,7 +136,8 @@ export const columnsMobile: ColumnDef<Expense>[] = [
         <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px] overflow-hidden">
           <div className="w-1/2">
             <div className="">
-              <span className="text-lg ">&#3647;</span>
+              <span className="text-lg ">&#36;</span>
+              {/* <span className="text-lg ">&#3647;</span> */}
               <span className="text-lg font-bold">{formattedAmount}</span>
             </div>
             <div className="text-sm font-medium">{date}</div>
