@@ -23,7 +23,7 @@ export type Payment = {
 
 export type Expense = {
   id: string
-  date: string
+  created_at: string
   user_id: string | null
   amount: string
   description: string
