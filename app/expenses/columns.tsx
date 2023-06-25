@@ -25,7 +25,7 @@ export type Expense = {
   id: string
   date: string
   user_id: string | null
-  amount: string
+  amount: number
   description: string
   location: string
   account: string
