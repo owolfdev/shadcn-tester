@@ -49,6 +49,7 @@ interface TData {
   status: string
   email: string
   description: string
+  categories: string[]
 }
 
 interface DataTableProps<TData, TValue> {
