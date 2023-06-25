@@ -1,7 +1,7 @@
 const dataArray = [
   {
     id: "d8b9ed1a-1d53-4d15-8357-63fae43dbf90",
-    created_at: "2023-06-15",
+    date: "2023-06-15",
     user_id: "987654",
     amount: 2500,
     description: "Coffee",
@@ -15,7 +15,7 @@ const dataArray = [
   },
   {
     id: "e876df30-6e45-4e19-bf7e-7890a82fb721",
-    created_at: "2023-06-21",
+    date: "2023-06-21",
     user_id: "543210",
     amount: 35000,
     description: "Movie Tickets",
@@ -29,7 +29,7 @@ const dataArray = [
   },
   {
     id: "fd3f267b-9d3a-4f33-982f-c4d7b23ff6c9",
-    created_at: "2023-06-12",
+    date: "2023-06-12",
     user_id: "246813",
     amount: 750000,
     description: "Laptop",
@@ -43,7 +43,7 @@ const dataArray = [
   },
   {
     id: "c24d9be2-bd26-45c1-9f9b-7c57a6939b64",
-    created_at: "2023-06-18",
+    date: "2023-06-18",
     user_id: "135792",
     amount: 5000,
     description: "Gym Membership",
@@ -57,7 +57,7 @@ const dataArray = [
   },
   {
     id: "d12a965c-7b2c-4324-8e4d-2cc48e1a0b5e",
-    created_at: "2023-06-23",
+    date: "2023-06-23",
     user_id: "987654",
     amount: 2000,
     description: "Books",
@@ -71,7 +71,7 @@ const dataArray = [
   },
   {
     id: "bc389f2d-9c68-4a8d-84bc-1fb7c735d5e6",
-    created_at: "2023-06-11",
+    date: "2023-06-11",
     user_id: "246813",
     amount: 15000,
     description: "Clothing",
@@ -85,7 +85,7 @@ const dataArray = [
   },
   {
     id: "eb6241c3-3c97-4c9d-930d-607be10db2c5",
-    created_at: "2023-06-19",
+    date: "2023-06-19",
     user_id: "543210",
     amount: 30000,
     description: "Hotel Stay",
@@ -106,7 +106,7 @@ const dataArray = [
   },
   {
     id: "b8b68a3c-d84b-47f7-9525-8e179a20c873",
-    created_at: "2023-06-24",
+    date: "2023-06-24",
     user_id: "123456",
     amount: 500,
     description: "Pizza Delivery",
@@ -120,7 +120,7 @@ const dataArray = [
   },
   {
     id: "d3b2e21d-d4e3-4a35-b4d1-b19d5b684cf0",
-    created_at: "2023-06-13",
+    date: "2023-06-13",
     user_id: "987654",
     amount: 7500,
     description: "Concert Tickets",
@@ -134,7 +134,7 @@ const dataArray = [
   },
   {
     id: "e584ad43-3b7b-4a9b-bfc0-24fcf755c2a9",
-    created_at: "2023-06-22",
+    date: "2023-06-22",
     user_id: "246813",
     amount: 10000,
     description: "Mobile Phone",
@@ -148,7 +148,7 @@ const dataArray = [
   },
   {
     id: "a2c69aa4-10f3-4efc-b810-0e67c3153666",
-    created_at: "2023-06-16",
+    date: "2023-06-16",
     user_id: "135792",
     amount: 2000,
     description: "Art Supplies",
@@ -162,7 +162,7 @@ const dataArray = [
   },
   {
     id: "e8f74f91-4baf-4915-8774-ef58cbdfb4e6",
-    created_at: "2023-06-20",
+    date: "2023-06-20",
     user_id: "987654",
     amount: 1500,
     description: "Lunch",
@@ -176,7 +176,7 @@ const dataArray = [
   },
   {
     id: "f93645b9-7d5f-4f0e-bb89-3363c9727ee9",
-    created_at: "2023-06-14",
+    date: "2023-06-14",
     user_id: "543210",
     amount: 5000,
 
@@ -191,7 +191,7 @@ const dataArray = [
   },
   {
     id: "c92be9ff-543f-48a2-b716-978b1fd3fe94",
-    created_at: "2023-06-25",
+    date: "2023-06-25",
     user_id: "123456",
     amount: 4500,
     description: "Car Maintenance",
@@ -205,7 +205,7 @@ const dataArray = [
   },
   {
     id: "b2ad9966-b57e-4ff0-9d47-d1e8295c0f88",
-    created_at: "2023-06-17",
+    date: "2023-06-17",
     user_id: "246813",
     amount: 80000,
     description: "Airline Tickets",
@@ -219,7 +219,7 @@ const dataArray = [
   },
   {
     id: "f94a3436-d840-40b0-8f60-940fcfe81042",
-    created_at: "2023-06-26",
+    date: "2023-06-26",
     user_id: "135792",
     amount: 1200,
     description: "Groceries",

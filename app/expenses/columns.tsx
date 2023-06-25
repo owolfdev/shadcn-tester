@@ -23,7 +23,7 @@ export type Payment = {
 
 export type Expense = {
   id: string
-  created_at: string
+  date: string
   user_id: string | null
   amount: string
   description: string
@@ -46,7 +46,7 @@ export const columns: ColumnDef<Expense>[] = [
       const amount: number = row.getValue("amount")
       const convertedAmount: number = amount / 100
       const formattedAmount: string = convertedAmount.toFixed(2)
-      const date = row.getValue("created_at") as string
+      const date = row.getValue("date") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
       const categoriesRaw = row.getValue("categories") as string[]
@@ -79,7 +79,7 @@ export const columns: ColumnDef<Expense>[] = [
     },
   },
   {
-    accessorKey: "created_at",
+    accessorKey: "date",
     cell: () => null,
     header: () => null,
   },
@@ -121,7 +121,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
       const amount: number = row.getValue("amount")
       const convertedAmount: number = amount / 100
       const formattedAmount: string = convertedAmount.toFixed(2)
-      const date = row.getValue("created_at") as string
+      const date = row.getValue("date") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
       const categoriesRaw = row.getValue("categories") as string[]
@@ -151,7 +151,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
     },
   },
   {
-    accessorKey: "created_at",
+    accessorKey: "date",
     cell: () => null,
     header: () => null,
   },
@@ -173,9 +173,19 @@ export const columnsMobile: ColumnDef<Expense>[] = [
     cell: () => null,
   },
   {
-    accessorKey: "categories",
-    header: () => null,
-    cell: () => null,
+    Header: "Categories",
+    accessorKey: "categories", // accessor is the "key" in the data
+    filter: (rows, id, filterValue) => {
+      console.log("filter", rows, id, filterValue)
+      return rows.filter((row) => {
+        const rowValue = row.values[id]
+        return rowValue
+          ? String(rowValue)
+              .toLowerCase()
+              .includes(String(filterValue).toLowerCase())
+          : true
+      })
+    },
   },
   {
     accessorKey: "account",

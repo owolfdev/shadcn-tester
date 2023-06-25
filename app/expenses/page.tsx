@@ -9,13 +9,16 @@ import { DataTable } from "./data-table"
 
 function DemoPage() {
   const isMobile = useMediaQuery({ maxWidth: 740 })
-
   const [data, setData] = React.useState<Expense[]>([])
 
   async function getData(): Promise<Expense[]> {
     // Fetch data from your API here.
     // console.log("data array", dataArray)
-    return [...(dataArray as Expense[])]
+    const fetchedData = dataArray
+    const sortedData = fetchedData.sort((a: Expense, b: Expense) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+    return [...(sortedData as Expense[])]
   }
 
   useEffect(() => {

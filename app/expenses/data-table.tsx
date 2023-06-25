@@ -66,7 +66,7 @@ export function DataTable<TData, TValue>({
   )
   const [filteringTerm, setFilteringTerm] =
     React.useState<string>("description")
-  const [sortingTerm, setSortingTerm] = React.useState<string>("created_at")
+  const [sortingTerm, setSortingTerm] = React.useState<string>("date")
 
   const router = useRouter()
 
@@ -106,10 +106,37 @@ export function DataTable<TData, TValue>({
     console.log("overlay clicked")
   }
 
+  function handleFilterInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const inputValue = event.target.value
+    if (filteringTerm === "categories") {
+      const filteredData = data.filter((item) => {
+        // Convert categories array to lowercase strings
+        const lowercaseCategories = item.categories.map((category) =>
+          category.toLowerCase()
+        )
+
+        // Check if any category matches the search input
+        return lowercaseCategories.some((category) =>
+          category.includes(inputValue.toLowerCase())
+        )
+      })
+
+      console.log("filteredData", filteredData)
+      table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
+
+      // Update the filtered data
+      table.setState((state) => ({
+        ...state,
+        rows: filteredData,
+      }))
+    } else {
+      table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
+    }
+  }
+
   return (
     <div>
       {/* Filter */}
-      {/* <div>Data: {JSON.stringify(data)}</div> */}
       <div className="z-20 flex items-end h-full gap-4 p-2">
         <div className="flex flex-col gap-2">
           <Select
@@ -122,6 +149,7 @@ export function DataTable<TData, TValue>({
               <SelectGroup>
                 <SelectItem value="merchant">Merchant</SelectItem>
                 <SelectItem value="description">Description</SelectItem>
+                <SelectItem value="categories">Categories</SelectItem>
                 <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -133,16 +161,13 @@ export function DataTable<TData, TValue>({
                 (table.getColumn(filteringTerm)?.getFilterValue() as string) ??
                 ""
               }
-              onChange={(event) =>
-                table
-                  .getColumn(filteringTerm)
-                  ?.setFilterValue(event.target.value)
-              }
+              onChange={handleFilterInputChange}
               className="h-8 max-w-sm input-no-zoom"
             />
           </div>
         </div>
-
+        {/* End Filter */}
+        {/* Sort */}
         <div className="flex flex-col gap-2">
           <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
@@ -153,7 +178,7 @@ export function DataTable<TData, TValue>({
             <SelectContent>
               <SelectGroup>
                 <SelectItem value="amount">Amount</SelectItem>
-                <SelectItem value="created_at">Date</SelectItem>
+                <SelectItem value="date">Date</SelectItem>
                 <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
