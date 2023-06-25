@@ -173,19 +173,9 @@ export const columnsMobile: ColumnDef<Expense>[] = [
     cell: () => null,
   },
   {
-    Header: "Categories",
-    accessorKey: "categories", // accessor is the "key" in the data
-    filter: (rows, id, filterValue) => {
-      console.log("filter", rows, id, filterValue)
-      return rows.filter((row) => {
-        const rowValue = row.values[id]
-        return rowValue
-          ? String(rowValue)
-              .toLowerCase()
-              .includes(String(filterValue).toLowerCase())
-          : true
-      })
-    },
+    accessorKey: "categories",
+    header: () => null,
+    cell: () => null,
   },
   {
     accessorKey: "account",
