@@ -109,9 +109,10 @@ export function DataTable<TData, TValue>({
 
   function handleFilterInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value
-    if (filteringTerm === "categories" && item.categories) {
+    if (filteringTerm === "categories") {
       const filteredData = data.filter((item) => {
         // Convert categories array to lowercase strings
+        if (!item.categories) return false
         const lowercaseCategories = item.categories.map((category) =>
           category.toLowerCase()
         )
