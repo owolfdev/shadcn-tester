@@ -11,6 +11,14 @@ const Checkbox = ({ children, ...props }: JSX.IntrinsicElements["input"]) => (
   </label>
 )
 
+interface CustomStyles {
+  option: (defaultStyles: any, state: any) => any
+  placeholder: (provided: any, state: any) => any
+  multiValue: (provided: any, state: any) => any
+  control: (defaultStyles: any, state: any) => any
+  input: (styles: any) => any
+}
+
 const initialCustomStyles: CustomStyles = {
   option: (defaultStyles, state) => ({
     ...defaultStyles,

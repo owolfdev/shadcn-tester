@@ -39,14 +39,6 @@ let items = [
   "Watermelon",
 ]
 
-interface CustomStyles {
-  option: (defaultStyles: any, state: any) => any
-  placeholder: (provided: any, state: any) => any
-  multiValue: (provided: any, state: any) => any
-  control: (defaultStyles: any, state: any) => any
-  input: (styles: any) => any
-}
-
 export default function IndexPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedItems, setSelectedItems] = useState<string[]>([])
