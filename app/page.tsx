@@ -175,8 +175,14 @@ export default function IndexPage() {
         >
           Custom Shadcn Data Table Test - Single full width cell
         </Link>
+        <Link
+          href="/expenses"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Custom Shadcn Data Table Test - Expenses
+        </Link>
       </div>
-
+      {/* other links */}
       <div className="flex flex-col gap-2">
         <Link
           href="https://github.com/owolfdev/shadcn-tester"
