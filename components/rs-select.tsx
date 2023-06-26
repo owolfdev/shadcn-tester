@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import Select from "react-select"
-import { v4 as uuidv4 } from "uuid"
 
 const Checkbox = ({ children, ...props }: JSX.IntrinsicElements["input"]) => (
   <label style={{ marginRight: "1em" }}>
@@ -119,7 +118,7 @@ export function RSSelect({
   const [isDisabled, setIsDisabled] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isRtl, setIsRtl] = useState(false)
-  const selectId = uuidv4()
+
   //styles
 
   const [customStyles, setCustomStyles] =
@@ -207,7 +206,7 @@ export function RSSelectMulti({
   const [isDisabled, setIsDisabled] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isRtl, setIsRtl] = useState(false)
-  const selectIdMulti = uuidv4()
+
   //styles
 
   const [customStyles, setCustomStyles] =
