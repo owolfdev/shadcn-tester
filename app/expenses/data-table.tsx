@@ -146,7 +146,7 @@ export function DataTable<TData, TValue>({
           <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
-            <SelectTrigger className="z-30 h-8">
+            <SelectTrigger className="z-40 h-8">
               <SelectValue placeholder="Filter by.." />
             </SelectTrigger>
             <SelectContent>
@@ -158,7 +158,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="z-20 input-no-zoom">
+          <div className="z-40 input-no-zoom">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
               value={
@@ -176,7 +176,7 @@ export function DataTable<TData, TValue>({
           <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
           >
-            <SelectTrigger className="z-10 h-8">
+            <SelectTrigger className="z-40 h-8">
               <SelectValue placeholder="Sort by.." />
             </SelectTrigger>
             <SelectContent>
@@ -190,7 +190,7 @@ export function DataTable<TData, TValue>({
 
           <div className="">
             <Button
-              className="h-8"
+              className="z-40 h-8"
               variant="secondary"
               onClick={() =>
                 table
