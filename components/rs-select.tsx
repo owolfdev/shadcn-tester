@@ -48,7 +48,7 @@ const initialCustomStyles: CustomStyles = {
 }
 
 const customStylesDef = (theme: any) => ({
-  option: (defaultStyles: any, { isFocused }) => ({
+  option: (defaultStyles: any, { isFocused }: any) => ({
     ...defaultStyles,
     backgroundColor: isFocused
       ? theme === "dark"
@@ -119,6 +119,11 @@ export function RSSelect({
   setSelectedItem,
   controls = false,
   instanceId,
+}: {
+  items: string[]
+  setSelectedItem: (item: string) => void
+  controls?: boolean
+  instanceId?: string
 }) {
   const { setTheme, theme } = useTheme()
   const [isClearable, setIsClearable] = useState(true)
@@ -153,7 +158,7 @@ export function RSSelect({
           isSearchable={isSearchable}
           name="color"
           options={items.map((item) => ({ value: item, label: item }))}
-          onChange={(option) => setSelectedItem(option.value)}
+          onChange={(option) => option && setSelectedItem(option?.value)}
         />
       </div>
       {controls && (
@@ -207,6 +212,11 @@ export function RSSelectMulti({
   setSelectedItems,
   selectedItems,
   instanceId,
+}: {
+  items: string[]
+  setSelectedItems: (items: string[]) => void
+  selectedItems: string[]
+  instanceId?: string
 }) {
   const { setTheme, theme } = useTheme()
   const [isClearable, setIsClearable] = useState(true)
