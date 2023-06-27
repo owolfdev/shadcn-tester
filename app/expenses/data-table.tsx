@@ -154,7 +154,7 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       {/* Filter */}
-      <div className="z-20 flex items-end h-full gap-4 p-2">
+      <div className="z-20 flex items-end h-full gap-4 p-2 ">
         <div className="flex flex-col gap-2">
         <RSSelect
         instanceId="filter"
@@ -176,7 +176,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select> */}
-          <div className="input-no-zoom">
+          <div className="">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
               value={
@@ -184,7 +184,7 @@ export function DataTable<TData, TValue>({
                 ""
               }
               onChange={handleFilterInputChange}
-              className="h-8 max-w-sm input-no-zoom"
+              className="h-8 max-w-sm"
             />
           </div>
         </div>
