@@ -43,6 +43,14 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+import { RSSelect, RSSelectMulti } from "@/components/rs-select"
+let items = [
+  'merchant',
+  'description',
+  'categories',
+  'account'
+]
+
 interface TData {
   exid: string
   amount: number
@@ -143,7 +151,13 @@ export function DataTable<TData, TValue>({
       {/* Filter */}
       <div className="z-20 flex items-end h-full gap-4 p-2">
         <div className="flex flex-col gap-2">
-          <Select
+        <RSSelect
+        instanceId="fruit"
+        items={items}
+        setSelectedItem={setFilteringTerm}
+        controls={false}
+      />
+          {/* <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
             <SelectTrigger className="z-40 h-8">
@@ -157,7 +171,7 @@ export function DataTable<TData, TValue>({
                 <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
-          </Select>
+          </Select> */}
           <div className="z-40 input-no-zoom">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
