@@ -34,16 +34,16 @@ const initialCustomStyles: CustomStyles = {
 
   clearIndicator: (provided: any) => ({
     ...provided,
-    display: "none"
+    display: "none",
   }),
-  dropdownIndicator: (provided:any) => ({
+  dropdownIndicator: (provided: any) => ({
     ...provided,
-    display: "none"
+    display: "none",
   }),
   indicatorSeparator: () => ({
-    display: "none"
+    display: "none",
   }),
-  
+
   multiValue: (provided, state) => ({
     ...provided,
     backgroundColor: "#e2e8f0",
@@ -97,17 +97,16 @@ const customStylesDef = (theme: any) => ({
 
   clearIndicator: (provided: any) => ({
     ...provided,
-    display: "none"
+    display: "none",
   }),
-  dropdownIndicator: (provided:any) => ({
+  dropdownIndicator: (provided: any) => ({
     ...provided,
-    display: "none"
+    display: "none",
   }),
   indicatorSeparator: () => ({
-    display: "none"
+    display: "none",
   }),
 
-  
   placeholder: (provided: any, state: any) => ({
     // Styles for the placeholder text
     ...provided,
@@ -140,7 +139,11 @@ const customStylesDef = (theme: any) => ({
   }),
   input: (styles: any) => ({
     ...styles,
-    color: theme === "dark" ? "#e2e8f0" : "black",
+    color: theme === "dark" ? "white" : "black",
+  }),
+  singleValue: (provided: any) => ({
+    ...provided,
+    color: theme === "dark" ? "white" : "black",
   }),
 })
 

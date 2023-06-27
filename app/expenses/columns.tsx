@@ -72,7 +72,7 @@ export const columns: ColumnDef<Expense>[] = [
             </div>
             <div className="text-sm font-medium">Account: {account}</div>
           </div>
-          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md">
+          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md dark:bg-transparent ">
             {description}
           </div>
         </div>
@@ -133,7 +133,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
       const account = row.getValue("account") as string
 
       return (
-        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px] overflow-hidden">
+        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px] overflow-hidden ">
           <div className="w-1/2">
             <div className="">
               <span className="text-lg ">&#36;</span>
@@ -145,7 +145,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
             <div className="text-xs text-gray-500">{categories}</div>
             <div className="text-sm font-medium">{account}</div>
           </div>
-          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md">
+          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md dark:bg-transparent ">
             {description.slice(0, 50)}
           </div>
         </div>
