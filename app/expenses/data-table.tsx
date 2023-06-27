@@ -44,11 +44,16 @@ import {
 } from "@/components/ui/table"
 
 import { RSSelect, RSSelectMulti } from "@/components/rs-select"
-let items = [
+let itemsSelectFilter = [
   'merchant',
   'description',
   'categories',
   'account'
+]
+let itemsSelectSort = [
+  'date',
+  'amount',
+  'account',
 ]
 
 interface TData {
@@ -152,11 +157,10 @@ export function DataTable<TData, TValue>({
       <div className="z-20 flex items-end h-full gap-4 p-2">
         <div className="flex flex-col gap-2">
         <RSSelect
-        instanceId="fruit"
-        items={items}
+        instanceId="filter"
+        items={itemsSelectFilter}
         setSelectedItem={setFilteringTerm}
-        controls={false}
-      />
+        controls={false}/>
           {/* <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
@@ -172,7 +176,7 @@ export function DataTable<TData, TValue>({
               </SelectGroup>
             </SelectContent>
           </Select> */}
-          <div className="z-40 input-no-zoom">
+          <div className="input-no-zoom">
             <Input
               placeholder={`Filter ${filteringTerm}...`}
               value={
@@ -187,10 +191,15 @@ export function DataTable<TData, TValue>({
         {/* End Filter */}
         {/* Sort */}
         <div className="flex flex-col gap-2">
-          <Select
+        <RSSelect
+        instanceId="sort"
+        items={itemsSelectSort}
+        setSelectedItem={setSortingTerm}
+        controls={false}/>
+          {/* <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
           >
-            <SelectTrigger className="z-40 h-8">
+            <SelectTrigger className="h-8">
               <SelectValue placeholder="Sort by.." />
             </SelectTrigger>
             <SelectContent>
@@ -200,11 +209,11 @@ export function DataTable<TData, TValue>({
                 <SelectItem value="account">Account</SelectItem>
               </SelectGroup>
             </SelectContent>
-          </Select>
+          </Select> */}
 
           <div className="">
             <Button
-              className="z-40 h-8"
+              className="h-8"
               variant="secondary"
               onClick={() =>
                 table
