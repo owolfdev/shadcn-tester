@@ -79,7 +79,7 @@ export function DataTable<TData, TValue>({
     []
   )
   const [filteringTerm, setFilteringTerm] =
-    React.useState<string>("description")
+    React.useState<string>("merchant")
   const [sortingTerm, setSortingTerm] = React.useState<string>("date")
 
   const router = useRouter()

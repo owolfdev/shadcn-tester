@@ -48,6 +48,9 @@ const initialCustomStyles: CustomStyles = {
 }
 
 const customStylesDef = (theme: any) => ({
+
+  
+  
   option: (defaultStyles: any, { isFocused }: any) => ({
     ...defaultStyles,
     backgroundColor: isFocused
@@ -78,6 +81,20 @@ const customStylesDef = (theme: any) => ({
         : "#6B728",
     },
   }),
+
+  clearIndicator: (provided: any) => ({
+    ...provided,
+    display: "none"
+  }),
+  dropdownIndicator: (provided:any) => ({
+    ...provided,
+    display: "none"
+  }),
+  indicatorSeparator: () => ({
+    display: "none"
+  }),
+
+  
   placeholder: (provided: any, state: any) => ({
     // Styles for the placeholder text
     ...provided,
