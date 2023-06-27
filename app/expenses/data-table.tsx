@@ -42,19 +42,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-
 import { RSSelect, RSSelectMulti } from "@/components/rs-select"
-let itemsSelectFilter = [
-  'merchant',
-  'description',
-  'categories',
-  'account'
-]
-let itemsSelectSort = [
-  'date',
-  'amount',
-  'account',
-]
+
+let itemsSelectFilter = ["merchant", "description", "categories", "account"]
+let itemsSelectSort = ["date", "amount", "account"]
 
 interface TData {
   exid: string
@@ -78,8 +69,7 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   )
-  const [filteringTerm, setFilteringTerm] =
-    React.useState<string>("merchant")
+  const [filteringTerm, setFilteringTerm] = React.useState<string>("merchant")
   const [sortingTerm, setSortingTerm] = React.useState<string>("date")
 
   const router = useRouter()
@@ -154,13 +144,14 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       {/* Filter */}
-      <div className="z-20 flex items-end h-full gap-4 p-2 ">
-        <div className="flex flex-col gap-2">
-        <RSSelect
-        instanceId="filter"
-        items={itemsSelectFilter}
-        setSelectedItem={setFilteringTerm}
-        controls={false}/>
+      <div className="z-20 flex items-end h-full gap-4 p-2 sm:w-[500px]">
+        <div className="flex flex-col gap-2 w-1/2">
+          <RSSelect
+            instanceId="filter"
+            items={itemsSelectFilter}
+            setSelectedItem={setFilteringTerm}
+            controls={false}
+          />
           {/* <Select
             onValueChange={(selectedItem) => setFilteringTerm(selectedItem)}
           >
@@ -184,18 +175,19 @@ export function DataTable<TData, TValue>({
                 ""
               }
               onChange={handleFilterInputChange}
-              className="h-8 max-w-sm"
+              className="h-8 w-full`"
             />
           </div>
         </div>
         {/* End Filter */}
         {/* Sort */}
-        <div className="flex flex-col gap-2">
-        <RSSelect
-        instanceId="sort"
-        items={itemsSelectSort}
-        setSelectedItem={setSortingTerm}
-        controls={false}/>
+        <div className="flex flex-col gap-2 w-1/2 sm:w-[150px]">
+          <RSSelect
+            instanceId="sort"
+            items={itemsSelectSort}
+            setSelectedItem={setSortingTerm}
+            controls={false}
+          />
           {/* <Select
             onValueChange={(selectedItem) => setSortingTerm(selectedItem)}
           >
@@ -213,7 +205,7 @@ export function DataTable<TData, TValue>({
 
           <div className="">
             <Button
-              className="h-8"
+              className="h-8 w-full"
               variant="secondary"
               onClick={() =>
                 table

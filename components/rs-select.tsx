@@ -14,6 +14,9 @@ const Checkbox = ({ children, ...props }: JSX.IntrinsicElements["input"]) => (
 interface CustomStyles {
   option: (defaultStyles: any, state: any) => any
   placeholder: (provided: any, state: any) => any
+  clearIndicator: (provided: any, state: any) => any
+  dropdownIndicator: (provided: any, state: any) => any
+  indicatorSeparator: (provided: any, state: any) => any
   multiValue: (provided: any, state: any) => any
   control: (defaultStyles: any, state: any) => any
   input: (styles: any) => any
@@ -28,6 +31,19 @@ const initialCustomStyles: CustomStyles = {
     color: "#6B7280",
     fontSize: "14px",
   }),
+
+  clearIndicator: (provided: any) => ({
+    ...provided,
+    display: "none"
+  }),
+  dropdownIndicator: (provided:any) => ({
+    ...provided,
+    display: "none"
+  }),
+  indicatorSeparator: () => ({
+    display: "none"
+  }),
+  
   multiValue: (provided, state) => ({
     ...provided,
     backgroundColor: "#e2e8f0",
@@ -48,9 +64,6 @@ const initialCustomStyles: CustomStyles = {
 }
 
 const customStylesDef = (theme: any) => ({
-
-  
-  
   option: (defaultStyles: any, { isFocused }: any) => ({
     ...defaultStyles,
     backgroundColor: isFocused
