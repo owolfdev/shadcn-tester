@@ -112,33 +112,33 @@ export function DataTable<TData, TValue>({
 
   function handleFilterInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value
-    if (filteringTerm === "categories") {
-      const filteredData = data.filter((item) => {
-        const itemWithCategories = item as TData & { categories?: string[] }
+    // if (filteringTerm === "categories") {
+    //   const filteredData = data.filter((item) => {
+    //     const itemWithCategories = item as TData & { categories?: string[] }
 
-        // Convert categories array to lowercase strings
-        if (!itemWithCategories.categories) return false
-        const lowercaseCategories = itemWithCategories.categories.map(
-          (category) => category.toLowerCase()
-        )
+    //     // Convert categories array to lowercase strings
+    //     if (!itemWithCategories.categories) return false
+    //     const lowercaseCategories = itemWithCategories.categories.map(
+    //       (category) => category.toLowerCase()
+    //     )
 
-        // Check if any category matches the search input
-        return lowercaseCategories.some((category) =>
-          category.includes(inputValue.toLowerCase())
-        )
-      })
+    //     // Check if any category matches the search input
+    //     return lowercaseCategories.some((category) =>
+    //       category.includes(inputValue.toLowerCase())
+    //     )
+    //   })
 
-      console.log("filteredData", filteredData)
-      table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
+    //   console.log("filteredData", filteredData)
+    //   table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
 
-      // Update the filtered data
-      table.setState((state) => ({
-        ...state,
-        rows: filteredData,
-      }))
-    } else {
-      table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
-    }
+    //   // Update the filtered data
+    //   table.setState((state) => ({
+    //     ...state,
+    //     rows: filteredData,
+    //   }))
+    // } else {
+    table.getColumn(filteringTerm)?.setFilterValue(event.target.value)
+    // }
   }
 
   return (

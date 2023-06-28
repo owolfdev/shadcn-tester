@@ -49,9 +49,7 @@ export const columns: ColumnDef<Expense>[] = [
       const date = row.getValue("date") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
-      const categoriesRaw = row.getValue("categories") as string[]
-
-      const categories = categoriesRaw.join(", ")
+      const categories = row.getValue("categories") as string[]
 
       // console.log("exid", exid)
       const account = row.getValue("account") as string
@@ -125,9 +123,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
       const date = row.getValue("date") as string
       const description = row.getValue("description") as string
       const merchant = row.getValue("merchant") as string
-      const categoriesRaw = row.getValue("categories") as string[]
-
-      const categories = categoriesRaw.join(", ")
+      const categories = row.getValue("categories") as string[]
 
       // console.log("exid", exid)
       const account = row.getValue("account") as string
