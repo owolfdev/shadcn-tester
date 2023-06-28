@@ -29,7 +29,7 @@ export type Expense = {
   description: string
   location: string
   account: string
-  categories: string[]
+  categories: string
   currency: string | null
   merchant: string
   receipt: string | null

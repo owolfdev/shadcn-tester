@@ -34,12 +34,19 @@ const buttonVariants = cva(
   }
 )
 
-const FileUpload = ({ variant = "default", size = "default", ...props }) => {
+const FileUpload = ({
+  variant = "default",
+  size = "default",
+  ...props
+}: {
+  variant?: VariantProps<typeof buttonVariants>["variant"]
+  size?: VariantProps<typeof buttonVariants>["size"]
+}) => {
   const [fileLabel, setFileLabel] = React.useState("Select a file")
-  const fileInputRef = React.useRef()
+  const fileInputRef = React.useRef<HTMLInputElement>(null)
 
   const onFileChange = () => {
-    if (fileInputRef.current.files.length) {
+    if (fileInputRef?.current?.files?.length) {
       setFileLabel(`File selected: ${fileInputRef.current.files[0].name}`)
     }
   }
