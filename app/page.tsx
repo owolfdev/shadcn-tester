@@ -181,6 +181,12 @@ export default function IndexPage() {
         >
           Custom Shadcn Data Table Test - Expenses
         </Link>
+        <Link
+          href="/file-picker"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Custom file picker styled to match shadcn/ui
+        </Link>
       </div>
       {/* other links */}
       <div className="flex flex-col gap-2">
