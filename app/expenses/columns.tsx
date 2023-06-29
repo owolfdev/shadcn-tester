@@ -74,7 +74,7 @@ export const columns: ColumnDef<Expense>[] = [
             <div className="px-3 py-2 overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-md border">
               {description}
             </div>
-            <div className="text-sm text-gray-600">{categories}</div>
+            <div className="text-sm">{categories}</div>
           </div>
         </div>
       )
@@ -148,7 +148,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
             <div className="px-3 py-2 overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-md border">
               {description.slice(0, 50)}
             </div>
-            <div className="text-xs text-gray-600">{categories}</div>
+            <div className="text-xs">{categories}</div>
           </div>
         </div>
       )
