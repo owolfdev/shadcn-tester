@@ -55,7 +55,7 @@ export const columns: ColumnDef<Expense>[] = [
       const account = row.getValue("account") as string
 
       return (
-        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[110px] overflow-hidden">
+        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[90px] overflow-hidden">
           <div className="w-1/2">
             <div className="">
               <span className="font-semibold">Amount: </span>
@@ -65,13 +65,16 @@ export const columns: ColumnDef<Expense>[] = [
             </div>
             <div className="text-sm font-medium ">Date: {date}</div>
             <div className="font-bold">Merchant: {merchant}</div>
-            <div className="text-xs text-gray-500">
-              Categories: {categories}
+
+            <div className="text-sm font-medium text-gray-600">
+              Account: {account}
             </div>
-            <div className="text-sm font-medium">Account: {account}</div>
           </div>
-          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md dark:bg-transparent ">
-            {description}
+          <div className="flex flex-col w-1/2 gap-2">
+            <div className="px-3 py-2 overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-md border">
+              {description}
+            </div>
+            <div className="text-sm text-gray-600">{categories}</div>
           </div>
         </div>
       )
@@ -129,7 +132,7 @@ export const columnsMobile: ColumnDef<Expense>[] = [
       const account = row.getValue("account") as string
 
       return (
-        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[110px] sm:h-[90px] overflow-hidden ">
+        <div className="flex justify-between w-full gap-6 sm:gap-20 h-[90px]overflow-hidden ">
           <div className="w-1/2">
             <div className="">
               <span className="text-lg ">&#36;</span>
@@ -138,11 +141,14 @@ export const columnsMobile: ColumnDef<Expense>[] = [
             </div>
             <div className="text-sm font-medium">{date}</div>
             <div className="font-bold">{merchant}</div>
-            <div className="text-xs text-gray-500">{categories}</div>
-            <div className="text-sm font-medium">{account}</div>
+            {/* <div className="text-xs text-gray-500">{categories}</div> */}
+            <div className="text-sm font-medium text-gray-600">{account}</div>
           </div>
-          <div className="w-1/2 px-3 py-2 overflow-hidden bg-gray-100 border rounded-md dark:bg-transparent ">
-            {description.slice(0, 50)}
+          <div className="flex flex-col w-1/2 gap-2">
+            <div className="px-3 py-2 overflow-hidden bg-slate-100 dark:bg-slate-900 rounded-md border">
+              {description.slice(0, 50)}
+            </div>
+            <div className="text-xs text-gray-600">{categories}</div>
           </div>
         </div>
       )
