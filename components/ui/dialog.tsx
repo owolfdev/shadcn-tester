@@ -148,3 +148,7 @@ export {
   DialogTitle,
   DialogDescription,
 }
+
+Dialog.displayName = "Dialog"
+DialogTrigger.displayName = "DialogTrigger"
+DialogClose.displayName = "DialogClose"
