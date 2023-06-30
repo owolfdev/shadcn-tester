@@ -1,6 +1,7 @@
 "use client"
 
 import { use, useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import Select from "react-select"
@@ -186,6 +187,12 @@ export default function IndexPage() {
           className="text-lg font-semibold hover:text-slate-400"
         >
           Custom file picker styled to match shadcn/ui
+        </Link>
+        <Link
+          href="/dialog"
+          className="text-lg font-semibold hover:text-slate-400"
+        >
+          Shadcn Dialog Test.
         </Link>
       </div>
       {/* other links */}

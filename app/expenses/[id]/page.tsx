@@ -31,7 +31,7 @@ export default function PaymentPage({ params }: { params: { id: string } }) {
         </Link>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 max-w-[800px]">
         <div>{formatDate(data?.date!)}</div>
         <div className="text-lg mb-2">
           <span className="text-lg ">&#36;</span>
@@ -69,9 +69,14 @@ export default function PaymentPage({ params }: { params: { id: string } }) {
           <div>
             <span className="font-bold">Account</span> {data?.account}
           </div>
-          <div className="w-full sm:w-1/2 mb-1 mt-4 border rounded-lg overflow-hidden">
+          <div className="w-full mb-1 mt-4 border rounded-lg overflow-hidden">
             <img src={data?.receipt} alt="" />
-            {/* <Image src={receiptImage} alt="receipt" width={500} height={500} /> */}
+            {/* <Image
+              src={`https://images.unsplash.com/photo-1545941962-1b6654eb8072`}
+              alt="receipt"
+              width={500}
+              height={500}
+            /> */}
           </div>
         </div>
       </div>

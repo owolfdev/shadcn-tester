@@ -10,6 +10,28 @@ const Dialog = DialogPrimitive.Root
 
 const DialogTrigger = DialogPrimitive.Trigger
 
+export const DialogClose = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Close> & {
+    action: () => void
+    as?: React.ElementType
+  }
+>(
+  (
+    { as: Component = DialogPrimitive.Close, action, className, ...props },
+    ref
+  ) => (
+    <DialogPrimitive.Close
+      ref={ref}
+      onClick={action}
+      className={className}
+      {...props}
+    >
+      {props.children}
+    </DialogPrimitive.Close>
+  )
+)
+
 const DialogPortal = ({
   className,
   children,
