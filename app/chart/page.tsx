@@ -1,14 +1,14 @@
 import React from "react"
 
-import { Overview } from "@/components/rechart-demo"
+import { ReChart } from "@/components/rechart-demo"
 
 const ChartPage = () => {
   return (
-    <div>
-      <div>
-        <Overview />
+    <section className="container pt-6 pb-8 md:py-10">
+      <div className="">
+        <ReChart />
       </div>
-    </div>
+    </section>
   )
 }
 

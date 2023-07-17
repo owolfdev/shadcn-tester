@@ -72,7 +72,7 @@ export default function PaymentPage({ params }: { params: { id: string } }) {
           <div className="w-full mb-1 mt-4 border rounded-lg overflow-hidden">
             <img src={data?.receipt} alt="" />
             {/* <Image
-              src={`https://images.unsplash.com/photo-1545941962-1b6654eb8072`}
+              src={`/wrestler.jpeg`}
               alt="receipt"
               width={500}
               height={500}
